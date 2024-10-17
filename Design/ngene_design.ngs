@@ -1,0 +1,29 @@
+Design
+? 
+
+;alts = alt1, alt2, sq
+;rows = 100
+;block = 10
+;eff = (mnl,d)
+
+;model:
+U(alt1) = b1.effects[0.000001|0.000001]*climate[1,2,0] 
+		+ b2.effects[0.000001|0.000001]*flood[1,2,0] 
+		+ b3.effects[0.000001|0.000001]*drought[1,2,0] 
+		+ b4.effects[0.000001|0.000001]*freshwater[1,2,0] 
+		+ b5.effects[0.000001]*habitat[1,0] 
+		+ b6[-0.000001]*cost[50,100,150,200,300,400,500] /
+U(alt2) = b1.effects*climate 
+		+ b2.effects*flood 
+		+ b3.effects*drought 
+		+ b4.effects*freshwater 
+		+ b5.effects*habitat 
+		+ b6*cost /
+U(sq) = b0[0] 
+		? climate = 0 
+		? flood = 0
+		? drought = 0 
+		? freshwater = 0 
+		? habitat = 0 
+		+ b6*cost0[0]
+$
